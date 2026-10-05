@@ -4,9 +4,6 @@ exports.handler = async function (event) {
     if (event.httpMethod !== "POST") {
         return {
             statusCode: 405,
-            headers: {
-                "Content-Type": "application/json"
-            },
             body: JSON.stringify({
                 error: "Method not allowed"
             })
@@ -19,17 +16,20 @@ exports.handler = async function (event) {
         if (!topic) {
             return {
                 statusCode: 400,
-                headers: {
-                    "Content-Type": "application/json"
-                },
                 body: JSON.stringify({
                     error: "Please provide a topic."
                 })
             };
         }
 
+        const apiKey = process.env.GEMINI_API_KEY;
+
+        if (!apiKey) {
+            throw new Error("GEMINI_API_KEY is missing from Netlify environment variables.");
+        }
+
         const ai = new GoogleGenAI({
-            apiKey: process.env.GEMINI_API_KEY
+            apiKey: apiKey
         });
 
         const prompt = `Create an original ${type}.
@@ -66,7 +66,7 @@ Return only the generated ${type}.`;
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                error: error.message
+                error: error.message || "Unknown server error"
             })
         };
     }
