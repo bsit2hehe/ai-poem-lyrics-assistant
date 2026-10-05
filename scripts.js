@@ -42,8 +42,11 @@ async function generateContent() {
         }
 
         if (!response.ok) {
-            throw new Error(data.error || "Something went wrong.");
-        }
+    throw new Error(
+        data.error ||
+        `Server error ${response.status}: ${text}`
+    );
+}
 
         output.textContent = data.result;
 
