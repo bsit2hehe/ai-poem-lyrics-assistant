@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Poem/Lyrics Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>✨ AI Poem/Lyrics Assistant</h1>
+        <p>Create original poems and song lyrics with AI.</p>
+
+        <label for="type">What do you want to create?</label>
+        <select id="type">
+            <option value="poem">Poem</option>
+            <option value="lyrics">Song Lyrics</option>
+        </select>
+
+        <label for="topic">Topic / Idea</label>
+        <textarea id="topic" placeholder="Example: A student chasing their dreams"></textarea>
+
+        <label for="mood">Mood</label>
+        <select id="mood">
+            <option>Happy</option>
+            <option>Sad</option>
+            <option>Romantic</option>
+            <option>Motivational</option>
+            <option>Chill</option>
+            <option>Dramatic</option>
+        </select>
+
+        <label for="genre">Genre</label>
+        <select id="genre">
+            <option>Pop</option>
+            <option>Rap</option>
+            <option>Rock</option>
+            <option>R&B</option>
+            <option>Acoustic</option>
+            <option>Hip-Hop</option>
+        </select>
+
+        <button id="generateBtn">✨ Generate with AI</button>
+
+        <section class="result">
+            <h2>AI Result</h2>
+
+            <div id="output">
+                Your generated poem or lyrics will appear here.
+            </div>
+
+            <div class="actions">
+                <button id="copyBtn">Copy</button>
+                <button id="regenerateBtn">Regenerate</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

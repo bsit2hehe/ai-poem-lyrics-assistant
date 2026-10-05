@@ -1,0 +1,12 @@
+{
+  "name": "ai-poem-lyrics-assistant",
+  "version": "1.0.0",
+  "description": "AI Poem and Lyrics Assistant",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "netlify-cli": "latest"
+  }
+}
