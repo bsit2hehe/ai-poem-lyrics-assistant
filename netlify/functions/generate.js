@@ -43,9 +43,13 @@ Do not copy or reproduce existing copyrighted songs or poems.
 Return only the generated ${type}.`;
 
         const interaction = await ai.interactions.create({
-            model: "gemini-3.8-flash",
-            input: prompt
-        });
+    model: "gemini-3.8-flash",
+    input: prompt,
+    generation_config: {
+        thinking_level: "low",
+        max_output_tokens: 300
+    }
+});
 
         return {
             statusCode: 200,
